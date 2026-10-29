@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knot & Thread | 手作編繩美學選物</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#fcfbf9',
+                            100: '#f5f3ef',
+                            200: '#e8e4dc',
+                            300: '#d4cfc4',
+                            400: '#b8b0a2',
+                            500: '#9b9181',
+                            600: '#7d7465',
+                            700: '#635b4f',
+                            800: '#4e483f',
+                            900: '#3f3a32',
+                        },
+                        amber: {
+                            50: '#fbf8f3',
+                            100: '#f4ece1',
+                            200: '#e8d7c1',
+                            300: '#dbbe9b',
+                            400: '#cea474',
+                            500: '#c28e53',
+                            600: '#b07a41',
+                            700: '#926134',
+                            800: '#774f2d',
+                            900: '#624126',
+                        },
+                        cream: '#FAF7F2',
+                        sand: '#F2EFE9',
+                        warmbrown: '#5C4A42'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #FAF7F2;
+            color: #4E483F;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom smooth scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F2EFE9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4CFC4;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B8B0A2;
+        }
+    </style>
+</head>
+<body class="bg-cream text-stone-800 antialiased selection:bg-amber-200 selection:text-amber-900">
+
+    <!-- 1. 質感導覽列 (Navbar) -->
+    <header class="sticky top-0 z-40 bg-cream/90 backdrop-blur-md border-b border-stone-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 border border-amber-200 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-feather text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-xl tracking-wider text-warmbrown font-semibold block">Knot & Thread</span>
+                    <span class="text-[10px] tracking-widest text-stone-500 uppercase block">Macramé Studio</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-stone-600">
+                <a href="#menu-section" class="hover:text-amber-700 transition-colors">精選目錄</a>
+                <a href="#about" class="hover:text-amber-700 transition-colors">關於手作</a>
+                <a href="#custom" class="hover:text-amber-700 transition-colors">客製須知</a>
+                <a href="#contact" class="hover:text-amber-700 transition-colors">聯絡我們</a>
+            </nav>
+
+            <!-- Search & Cart/Action -->
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden sm:block">
+                    <input type="text" id="desktop-search" placeholder="搜尋編繩作品..." 
+                           class="w-48 lg:w-64 bg-stone-100 border border-stone-200 rounded-full py-2 pl-9 pr-4 text-xs text-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:bg-white transition-all">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-stone-400 text-xs"></i>
+                </div>
+                <!-- Mobile menu toggle button -->
+                <button id="mobile-menu-btn" class="md:hidden text-stone-700 hover:text-amber-800 p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-b border-stone-200 px-6 py-4 space-y-3">
+            <div class="relative mb-3">
+                <input type="text" id="mobile-search" placeholder="搜尋編繩作品..." 
+                       class="w-full bg-stone-100 border border-stone-200 rounded-full py-2 pl-9 pr-4 text-xs text-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-300">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-stone-400 text-xs"></i>
+            </div>
+            <a href="#menu-section" class="block text-sm font-medium text-stone-700 hover:text-amber-700 py-1">精選目錄</a>
+            <a href="#about" class="block text-sm font-medium text-stone-700 hover:text-amber-700 py-1">關於手作</a>
+            <a href="#custom" class="block text-sm font-medium text-stone-700 hover:text-amber-700 py-1">客製須知</a>
+            <a href="#contact" class="block text-sm font-medium text-stone-700 hover:text-amber-700 py-1">聯絡我們</a>
+        </div>
+    </header>
+
+    <!-- 2. 英雄橫幅 (Hero Section) -->
+    <section class="relative bg-gradient-to-b from-stone-100 to-cream py-16 lg:py-24 overflow-hidden border-b border-stone-200/50">
+        <!-- Decorative background circles -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-100/50 blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-stone-200/40 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-amber-100/80 text-amber-900 border border-amber-200">
+                        <i class="fa-regular fa-heart mr-1.5 text-amber-700"></i> 慢活質感・純手工編織選物
+                    </span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-warmbrown font-normal leading-tight">
+                        用一根棉繩，<br>編織生活裡的溫柔詩意。
+                    </h1>
+                    <p class="text-stone-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        探索如 Café Menu 般精緻的手作編繩清單。每一個結、每一道紋理，都承載著手心的溫度與時間的沉澱，為您的居家空間與日常穿搭注入自然樸質的美學。
+                    </p>
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#menu-section" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-warmbrown text-cream text-sm font-medium shadow-md hover:bg-stone-800 transition-all text-center">
+                            瀏覽完整目錄 <i class="fa-solid fa-arrow-down ml-2"></i>
+                        </a>
+                        <a href="#custom" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-stone-200/80 text-stone-700 text-sm font-medium hover:bg-stone-300 transition-all text-center border border-stone-300/60">
+                            客製化預約流程
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Main Frame -->
+                        <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-stone-200">
+                            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1000&auto=format&fit=crop" 
+                                 alt="Macrame wall hanging" 
+                                 class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                                 onerror="this.src='https://placehold.co/600x750/E8D7C1/624126?text=Macrame+Art'">
+                        </div>
+                        <!-- Floating Badge Card -->
+                        <div class="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-stone-100 max-w-xs hidden sm:block">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-700">
+                                    <i class="fa-solid fa-seedling"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-stone-800">100% 天然棉麻材質</p>
+                                    <p class="text-[11px] text-stone-500">環保無害，觸感溫潤扎實</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 & 4. Menu 風格作品展示區與互動篩選 -->
+    <section id="menu-section" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs tracking-widest text-amber-700 uppercase font-semibold block mb-2">CURATED COLLECTION</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-warmbrown font-normal">手作編繩作品清單</h2>
+            <div class="w-16 h-0.5 bg-amber-300 mx-auto mt-4"></div>
+            <p class="text-stone-600 text-sm mt-4 font-light">點選分類標籤探索各系列手作品，點擊作品卡片可查看詳細工時與材質規格。</p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+            <button class="filter-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all bg-warmbrown text-cream shadow-sm" data-category="all">
+                全部作品 (All)
+            </button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all bg-stone-200/70 text-stone-700 hover:bg-stone-300" data-category="wall">
+                壁掛裝飾 (Wall Hangings)
+            </button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all bg-stone-200/70 text-stone-700 hover:bg-stone-300" data-category="bags">
+                包袋配件 (Bags & Accessories)
+            </button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all bg-stone-200/70 text-stone-700 hover:bg-stone-300" data-category="home">
+                居家小物 (Home Decors)
+            </button>
+            <button class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all bg-stone-200/70 text-stone-700 hover:bg-stone-300" data-category="custom">
+                客製專區 (Customized)
+            </button>
+        </div>
+
+        <!-- Menu Grid Container -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamic items will be injected here via JavaScript -->
+        </div>
+
+        <!-- Empty State (Hidden by default) -->
+        <div id="empty-state" class="hidden text-center py-20">
+            <div class="w-16 h-16 bg-stone-200 rounded-full flex items-center justify-center mx-auto text-stone-500 mb-4 text-xl">
+                <i class="fa-solid fa-face-grimace"></i>
+            </div>
+            <h3 class="text-lg font-medium text-stone-700">找不到符合條件的作品</h3>
+            <p class="text-stone-500 text-sm mt-1">請試著切換其他分類或使用不同關鍵字搜尋。</p>
+            <button id="reset-filter-btn" class="mt-4 px-5 py-2 rounded-full bg-warmbrown text-cream text-xs font-medium">重置篩選條件</button>
+        </div>
+    </section>
+
+    <!-- About Section: 品牌理念 -->
+    <section id="about" class="bg-stone-100/70 py-20 border-y border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs tracking-widest text-amber-700 uppercase font-semibold block mb-2">OUR PHILOSOPHY</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl text-warmbrown font-normal mb-6">在重複的結繩之中，<br>找回內心的寧靜片刻。</h2>
+                    <p class="text-stone-600 text-sm sm:text-base font-light leading-relaxed mb-4">
+                        Macramé 不僅是編織工藝，更是一種生活美學的實踐。我們嚴選來自世界各地的頂級天然棉繩、環保麻繩與台灣在地植鞣革，拒絕過度工業化，堅持每件作品都由雙手一結一索慢慢成形。
+                    </p>
+                    <p class="text-stone-600 text-sm sm:text-base font-light leading-relaxed mb-6">
+                        無論是點綴一面空白牆壁的巨幅壁掛，或是伴隨日常出門的質感編織包，都希望為您帶來樸質、溫暖且耐看的陪伴。
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-stone-200">
+                        <div>
+                            <span class="font-serif text-2xl text-amber-800 font-bold block">100%</span>
+                            <span class="text-xs text-stone-500">純手工編織</span>
+                        </div>
+                        <div>
+                            <span class="font-serif text-2xl text-amber-800 font-bold block">天然</span>
+                            <span class="text-xs text-stone-500">環保無毒材質</span>
+                        </div>
+                        <div>
+                            <span class="font-serif text-2xl text-amber-800 font-bold block">客製</span>
+                            <span class="text-xs text-stone-500">專屬色系搭配</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-stone-200">
+                            <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?q=80&w=800&auto=format&fit=crop" 
+                                 alt="Crafting details" class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/400x500/E8D7C1/624126?text=Craft+1'">
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-stone-200">
+                            <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?q=80&w=800&auto=format&fit=crop" 
+                                 alt="Materials" class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/400x500/E8D7C1/624126?text=Craft+2'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom & Ordering Notice -->
+    <section id="custom" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs tracking-widest text-amber-700 uppercase font-semibold block mb-2">BESPOKE ORDER</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-warmbrown font-normal">客製與訂購流程</h2>
+            <div class="w-16 h-0.5 bg-amber-300 mx-auto mt-4"></div>
+            <p class="text-stone-600 text-sm mt-4 font-light">為了確保每一件作品的細緻品質，我們採預約與排單製作制。</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200/70 text-center relative">
+                <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-800 font-serif font-bold text-lg flex items-center justify-center mx-auto mb-4 border border-amber-200">1</div>
+                <h3 class="font-medium text-stone-800 mb-2">挑選款式或私訊討論</h3>
+                <p class="text-xs text-stone-500 leading-relaxed font-light">您可以從 Menu 中選擇喜歡的作品，或提供您的空間照片與尺寸需求。</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200/70 text-center relative">
+                <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-800 font-serif font-bold text-lg flex items-center justify-center mx-auto mb-4 border border-amber-200">2</div>
+                <h3 class="font-medium text-stone-800 mb-2">確認色系與報價</h3>
+                <p class="text-xs text-stone-500 leading-relaxed font-light">確認棉繩顏色、木棍材質與最終尺寸，並支付訂金或全額款項。</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200/70 text-center relative">
+                <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-800 font-serif font-bold text-lg flex items-center justify-center mx-auto mb-4 border border-amber-200">3</div>
+                <h3 class="font-medium text-stone-800 mb-2">純手工耐心製作</h3>
+                <p class="text-xs text-stone-500 leading-relaxed font-light">依序排單編織。一般製作工時約為 5-14 個工作天，急件請先溝通。</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200/70 text-center relative">
+                <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-800 font-serif font-bold text-lg flex items-center justify-center mx-auto mb-4 border border-amber-200">4</div>
+                <h3 class="font-medium text-stone-800 mb-2">精美包裝與寄出</h3>
+                <p class="text-xs text-stone-500 leading-relaxed font-light">細心梳理流蘇、防撞包裝後寄送到府，陪伴您的溫馨日常。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 點擊卡片彈出詳細介紹 Modal (Modal Structure) -->
+    <div id="product-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-cream w-full max-w-3xl rounded-3xl shadow-2xl overflow-hidden border border-stone-200 transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col md:flex-row relative">
+            <!-- Close Button -->
+            <button id="modal-close-btn" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-stone-700 flex items-center justify-center shadow-md transition-all">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Modal Image -->
+            <div class="md:w-1/2 bg-stone-200 relative min-h-[280px] md:min-h-full">
+                <img id="modal-img" src="" alt="Product Detail" class="w-full h-full object-cover">
+                <div class="absolute bottom-4 left-4">
+                    <span id="modal-category-badge" class="px-3 py-1 rounded-full text-xs font-medium bg-white/90 text-amber-900 shadow-sm">分類</span>
+                </div>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="md:w-1/2 p-6 md:p-8 overflow-y-auto space-y-6">
+                <div>
+                    <h3 id="modal-title" class="font-serif text-2xl text-warmbrown font-normal mb-1">作品名稱</h3>
+                    <p id="modal-price" class="text-amber-800 font-semibold text-lg">NT$ 0</p>
+                </div>
+
+                <!-- Specs Grid -->
+                <div class="grid grid-cols-2 gap-4 py-3 border-y border-stone-200 text-xs">
+                    <div>
+                        <span class="text-stone-400 block mb-1">作品尺寸</span>
+                        <span id="modal-size" class="text-stone-700 font-medium">-</span>
+                    </div>
+                    <div>
+                        <span class="text-stone-400 block mb-1">使用材質</span>
+                        <span id="modal-material" class="text-stone-700 font-medium">-</span>
+                    </div>
+                    <div>
+                        <span class="text-stone-400 block mb-1">製作工時</span>
+                        <span id="modal-time" class="text-stone-700 font-medium">-</span>
+                    </div>
+                    <div>
+                        <span class="text-stone-400 block mb-1">特色標籤</span>
+                        <span id="modal-tags" class="text-amber-700 font-medium">-</span>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-wider text-stone-500 font-semibold mb-2">作品詳細介紹</h4>
+                    <p id="modal-desc" class="text-stone-600 text-sm font-light leading-relaxed">...</p>
+                </div>
+
+                <!-- Care Guide -->
+                <div class="bg-amber-50/60 p-4 rounded-2xl border border-amber-100/60">
+                    <h4 class="text-xs uppercase tracking-wider text-amber-900 font-semibold mb-1 flex items-center">
+                        <i class="fa-solid fa-circle-info mr-1.5 text-amber-700"></i> 清潔與護理方式
+                    </h4>
+                    <p id="modal-care" class="text-stone-600 text-xs font-light leading-relaxed">...</p>
+                </div>
+
+                <!-- Action Button -->
+                <div class="pt-2">
+                    <a href="#contact" id="modal-order-btn" class="block w-full text-center py-3 rounded-full bg-warmbrown text-cream text-sm font-medium shadow-md hover:bg-stone-800 transition-all">
+                        諮詢此作品 / 客製預約
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. 底部聯絡與訂製說明 (Footer) -->
+    <footer id="contact" class="bg-stone-900 text-stone-300 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-800/40 flex items-center justify-center text-amber-200 border border-amber-700/50">
+                            <i class="fa-solid fa-feather text-lg"></i>
+                        </div>
+                        <span class="font-serif text-xl tracking-wider text-white font-semibold">Knot & Thread</span>
+                    </div>
+                    <p class="text-stone-400 text-sm font-light leading-relaxed max-w-sm">
+                        用心編織每一款手作選物。歡迎透過 Instagram、官方 Line 或私訊與我們討論您的客製化需求。
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-stone-300 hover:bg-amber-800 hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-stone-300 hover:bg-amber-800 hover:text-white transition-colors">
+                            <i class="fa-brands fa-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-stone-300 hover:bg-amber-800 hover:text-white transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 space-y-4">
+                    <h4 class="text-sm font-semibold tracking-wider text-white uppercase">快速導覽</h4>
+                    <ul class="space-y-2 text-sm text-stone-400">
+                        <li><a href="#menu-section" class="hover:text-amber-200 transition-colors">精選目錄</a></li>
+                        <li><a href="#about" class="hover:text-amber-200 transition-colors">關於手作理念</a></li>
+                        <li><a href="#custom" class="hover:text-amber-200 transition-colors">客製訂購流程</a></li>
+                        <li><a href="#contact" class="hover:text-amber-200 transition-colors">聯絡我們</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-4">
+                    <h4 class="text-sm font-semibold tracking-wider text-white uppercase">工作室聯絡資訊</h4>
+                    <ul class="space-y-3 text-sm text-stone-400">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-amber-500"></i>
+                            <span>台灣手作工作室（採預約工作室參訪制）</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-envelope mt-0.5 text-amber-500"></i>
+                            <span>hello@knotandthread.studio</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-clock mt-0.5 text-amber-500"></i>
+                            <span>週一至週五 10:00 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-stone-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500">
+                <p>&copy; 2026 Knot & Thread Macramé Studio. All Rights Reserved.</p>
+                <p class="mt-2 sm:mt-0">Designed with Warmth & Passion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast Box -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-stone-900 text-white px-5 py-3 rounded-2xl shadow-xl transform translate-y-20 opacity-0 transition-all duration-300 flex items-center space-x-3 text-sm">
+        <i class="fa-solid fa-circle-check text-amber-400"></i>
+        <span id="toast-msg">已加入我的最愛</span>
+    </div>
+
+    <!-- JavaScript Data & Interaction Logic -->
+    <script>
+        // Product Dataset (Menu Items)
+        const products = [
+            {
+                id: 1,
+                name: "晨霧森林・大型棉繩壁掛",
+                category: "wall",
+                price: 2680,
+                size: "寬 65 cm × 高 85 cm（含原木桿）",
+                material: "100% 天然進口原色棉繩、台灣本地肖楠木漂流木",
+                time: "7 - 10 個工作天",
+                tags: ["純手工", "可客製尺寸", "原木手作"],
+                image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800&auto=format&fit=crop",
+                description: "以豐富的交織結與流蘇層次呈現森林晨霧的迷離感。選用頂級原色棉繩，手感紮實不刺手，懸掛於客廳沙發背牆或臥室床頭，能瞬間為空間營造自然溫潤的北歐無印風與侘寂美學。",
+                care: "建議定期使用軟毛刷輕輕拂去灰塵。若有局部髒污，可用冷水與中性洗劑輕柔手洗，切勿強力搓揉或機洗，平放陰乾即可。"
+            },
+            {
+                id: 2,
+                name: "月光曲・植鞣革編織水桶包",
+                category: "bags",
+                price: 1980,
+                size: "底徑 18 cm × 高 22 cm（背帶可調節）",
+                material: "上蠟棉繩、義大利植鞣牛革、金屬銅扣",
+                time: "5 - 7 個工作天",
+                tags: ["植鞣革搭配", "純手工", "熱銷款"],
+                image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop",
+                description: "結合編繩工藝與頂級植鞣牛革背帶，呈現率性又溫柔的日常包袋風格。內部附有棉麻束口內裡，兼具美觀與私密收納性，適合日常散發文藝氣息的穿搭。",
+                care: "植鞣革部分隨著使用會自然養出溫潤的蜜糖色澤。遇水請盡快用乾布按壓吸乾並置於通風處陰乾，避免長時間日曬。"
+            },
+            {
+                id: 3,
+                name: "漫漫山林・植栽吊籃 (掛繩組)",
+                category: "home",
+                price: 880,
+                size: "全長約 90 cm（適合 12-20cm 花盆）",
+                material: "天然麻繩、防鏽銅環",
+                time: "3 - 5 個工作天",
+                tags: ["居家小物", "純手工", "綠意搭配"],
+                image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=800&auto=format&fit=crop",
+                description: "讓綠意在家中垂直延伸的最佳單品。經典的編織網眼設計穩固且透氣，無論是垂墜的綠蘿、常春藤還是鹿角蕨，都能完美襯托植物的自然姿態。",
+                care: "澆水時建議將植物取下，待多餘水分滴乾後再放回吊籃，避免長期潮濕影響麻繩壽命。"
+            },
+            {
+                id: 4,
+                name: "午后咖啡・編織杯墊與隔熱墊組 (4入)",
+                category: "home",
+                price: 680,
+                size: "杯墊直徑 12 cm / 隔熱墊 22 cm",
+                material: "100% 粗厚純棉編織繩",
+                time: "3 - 4 個工作天",
+                tags: ["居家小物", "送禮首選", "純手工"],
+                image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop",
+                description: "為桌面時光增添溫潤質感的實用小物。厚實的編織結構具有良好的隔熱與吸水效果，咖啡杯、陶器或鑄鐵鍋都能安心放置。",
+                care: "若不慎沾染咖啡或茶漬，可使用溫水加中性洗劑局部輕刷，陰乾即可回復潔淨。"
+            },
+            {
+                id: 5,
+                name: "自由之翼・雙色羽毛掛飾",
+                category: "wall",
+                price: 1280,
+                size: "寬 40 cm × 高 50 cm",
+                material: "雙色漸層棉繩、特選原木枝條",
+                time: "5 - 7 個工作天",
+                tags: ["純手工", "漸層設計", "可客製"],
+                image: "https://images.unsplash.com/photo-1534349762230-10cad552f534?q=80&w=800&auto=format&fit=crop",
+                description: "以細緻梳理的手工羽毛造型呈現輕盈飄逸感。雙色漸層的設計讓牆面不再單調，光影灑落時更具立體層次。",
+                care: "可用專用小梳子輕輕梳理羽毛邊緣以保持蓬鬆感。請勿用水大力清洗以免定型失效。"
+            },
+            {
+                id: 6,
+                name: "漫步雲端・法式編織手機斜挎包",
+                category: "bags",
+                price: 1380,
+                size: "寬 12 cm × 高 19 cm（斜背帶 110 cm）",
+                material: "細緻編織棉繩、磁吸暗釦",
+                time: "4 - 6 個工作天",
+                tags: ["包袋配件", "熱銷款", "輕便出行"],
+                image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop",
+                description: "專為現代輕便出行設計的手機小包。可容納各大尺寸手機與卡夾，精緻的麻花編織與磁吸開合，兼具實用與造型感。",
+                care: "日常若有灰塵輕拍即可。收納時建議平放或懸掛於衣櫥內，避免重壓變形。"
+            },
+            {
+                id: 7,
+                name: "專屬訂製・大型落地隔斷簾/背景牆",
+                category: "custom",
+                price: 5800,
+                size: "可依空間客製（預設寬 120 cm × 高 200 cm）",
+                material: "特規粗棉麻繩、訂製實木橫桿",
+                time: "14 - 21 個工作天",
+                tags: ["客製專區", "商業空間", "頂級手作"],
+                image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800&auto=format&fit=crop",
+                description: "專為居家玄關、工作室隔間或婚禮背板打造的大型藝術編織簾。透光不透隱私的編織密度，能為空間創造優雅的光影流動與獨特氛圍。",
+                care: "專人到府安裝或提供詳細吊掛指導。後續保養提供免費諮詢與售後維護服務。"
+            }
+        ];
+
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        // DOM Elements
+        const productsGrid = document.getElementById('products-grid');
+        const emptyState = document.getElementById('empty-state');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const desktopSearch = document.getElementById('desktop-search');
+        const mobileSearch = document.getElementById('mobile-search');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Modal Elements
+        const productModal = document.getElementById('product-modal');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const modalImg = document.getElementById('modal-img');
+        const modalCategoryBadge = document.getElementById('modal-category-badge');
+        const modalTitle = document.getElementById('modal-title');
+        const modalPrice = document.getElementById('modal-price');
+        const modalSize = document.getElementById('modal-size');
+        const modalMaterial = document.getElementById('modal-material');
+        const modalTime = document.getElementById('modal-time');
+        const modalTags = document.getElementById('modal-tags');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalCare = document.getElementById('modal-care');
+
+        // Render Products Function
+        function renderProducts() {
+            productsGrid.innerHTML = '';
+
+            const filtered = products.filter(p => {
+                const matchCategory = currentCategory === 'all' || p.category === currentCategory;
+                const matchSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                    p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                    p.material.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchCategory && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            filtered.forEach(product => {
+                const categoryNames = {
+                    wall: '壁掛裝飾',
+                    bags: '包袋配件',
+                    home: '居家小物',
+                    custom: '客製專區'
+                };
+
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/70 flex flex-col group cursor-pointer";
+                card.onclick = () => openModal(product);
+
+                card.innerHTML = `
+                    <div class="relative aspect-[4/3] bg-stone-200 overflow-hidden">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450/E8D7C1/624126?text=Macrame+Item'">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-white/90 backdrop-blur-sm text-amber-900 shadow-sm">
+                                ${categoryNames[product.category] || '精選手作'}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mb-2">
+                                ${product.tags.map(t => `<span class="text-[10px] bg-amber-50 text-amber-800 px-2.5 py-0.5 rounded-full border border-amber-100">${t}</span>`).join('')}
+                            </div>
+                            <h3 class="font-serif text-lg text-warmbrown font-normal group-hover:text-amber-700 transition-colors">${product.name}</h3>
+                            <p class="text-stone-500 text-xs mt-1.5 line-clamp-2 font-light">${product.description}</p>
+                        </div>
+                        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                            <span class="text-amber-800 font-semibold text-base">NT$ ${product.price.toLocaleString()}</span>
+                            <span class="text-xs text-stone-500 group-hover:text-amber-700 font-medium flex items-center transition-colors">
+                                查看詳情 <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i>
+                            </span>
+                        </div>
+                    </div>
+                `;
+                productsGrid.appendChild(card);
+            });
+        }
+
+        // Modal Open
+        function openModal(product) {
+            const categoryNames = {
+                wall: '壁掛裝飾',
+                bags: '包袋配件',
+                home: '居家小物',
+                custom: '客製專區'
+            };
+
+            modalImg.src = product.image;
+            modalCategoryBadge.textContent = categoryNames[product.category] || '精選手作';
+            modalTitle.textContent = product.name;
+            modalPrice.textContent = `NT$ ${product.price.toLocaleString()}`;
+            modalSize.textContent = product.size;
+            modalMaterial.textContent = product.material;
+            modalTime.textContent = product.time;
+            modalTags.textContent = product.tags.join('、');
+            modalDesc.textContent = product.description;
+            modalCare.textContent = product.care;
+
+            productModal.classList.remove('opacity-0', 'pointer-events-none');
+            productModal.querySelector('div.transform').classList.remove('scale-95');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Modal Close
+        function closeModal() {
+            productModal.classList.add('opacity-0', 'pointer-events-none');
+            productModal.querySelector('div.transform').classList.add('scale-95');
+            document.body.style.overflow = '';
+        }
+
+        modalCloseBtn.onclick = closeModal;
+        productModal.onclick = (e) => {
+            if (e.target === productModal) closeModal();
+        };
+
+        // Filter Button Events
+        filterBtns.forEach(btn => {
+            btn.onclick = () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-warmbrown', 'text-cream', 'shadow-sm');
+                    b.classList.add('bg-stone-200/70', 'text-stone-700');
+                });
+                btn.classList.add('bg-warmbrown', 'text-cream', 'shadow-sm');
+                btn.classList.remove('bg-stone-200/70', 'text-stone-700');
+
+                currentCategory = btn.getAttribute('data-category');
+                renderProducts();
+            };
+        });
+
+        // Search Input Events
+        desktopSearch.oninput = (e) => {
+            searchQuery = e.target.value;
+            mobileSearch.value = searchQuery;
+            renderProducts();
+        };
+
+        mobileSearch.oninput = (e) => {
+            searchQuery = e.target.value;
+            desktopSearch.value = searchQuery;
+            renderProducts();
+        };
+
+        // Reset Filter Button
+        document.getElementById('reset-filter-btn').onclick = () => {
+            currentCategory = 'all';
+            searchQuery = '';
+            desktopSearch.value = '';
+            mobileSearch.value = '';
+            filterBtns.forEach(b => {
+                if (b.getAttribute('data-category') === 'all') {
+                    b.classList.add('bg-warmbrown', 'text-cream', 'shadow-sm');
+                    b.classList.remove('bg-stone-200/70', 'text-stone-700');
+                } else {
+                    b.classList.remove('bg-warmbrown', 'text-cream', 'shadow-sm');
+                    b.classList.add('bg-stone-200/70', 'text-stone-700');
+                }
+            });
+            renderProducts();
+        };
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.onclick = () => {
+            mobileMenu.classList.toggle('hidden');
+        };
+
+        // Initial render
+        window.onload = () => {
+            renderProducts();
+        };
+    </script>
+</body>
+</html>
